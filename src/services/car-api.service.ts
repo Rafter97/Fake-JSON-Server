@@ -9,12 +9,9 @@ export class CarApiService {
   private _siteUrl = 'http://localhost:3000/car_data';
 
   carsDataCollection: AngularFirestoreCollection<ICar>
-
   allCarsData: ICar[];
-
   errorMessage: string;
   
-
   constructor(private _http: HttpClient, private _afs: AngularFirestore) {
     this.carsDataCollection = _afs.collection<ICar>("cars_data");
   }
@@ -22,7 +19,6 @@ export class CarApiService {
   getCarData(): Observable<ICar[]> {
     let carsData = this.carsDataCollection.valueChanges();
     return carsData;
-
   }
 
   addCarData(car: ICar) : void {
